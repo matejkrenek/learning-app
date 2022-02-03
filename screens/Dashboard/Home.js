@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import { FlatList } from "react-native-gesture-handler"
-import { IconButton, TextButton } from '../../components';
+import { IconButton, TextButton, VerticalCourseCard } from '../../components';
 
 import { 
     COLORS,
@@ -142,7 +142,15 @@ const Home = () => {
                     marginTop: SIZES.padding
                 }}
                 renderItem={({item, index}) => {
-                    
+                    return (
+                        <VerticalCourseCard 
+                            containerStyle={{
+                                marginLeft: index == 0 ? SIZES.padding : SIZES.radius,
+                                marginRight: index == dummyData.courses_list_1.length - 1 ? SIZES.padding : 0
+                            }}
+                            course={item}
+                        />
+                    )
                 }}
             />
         )
